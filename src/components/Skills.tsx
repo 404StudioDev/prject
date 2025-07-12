@@ -7,26 +7,42 @@ interface SkillsProps {
 
 export default function Skills({ isDark }: SkillsProps) {
   const skills = [
-    { name: "React", icon: "⚛️", color: "#61dafb" },
+    // 🧑‍💻 Frontend
+    { name: "HTML", icon: "🌐", color: "#e34f26" },
+    { name: "CSS", icon: "🎨", color: "#1572b6" },
     { name: "JavaScript", icon: "🟨", color: "#f7df1e" },
-    { name: "TypeScript", icon: "🔷", color: "#3178c6" },
-    { name: "Python", icon: "🐍", color: "#3776ab" },
+    { name: "React.js", icon: "⚛️", color: "#61dafb" },
+    { name: "Tailwind CSS", icon: "💨", color: "#06b6d4" },
+    { name: "React Dropzone", icon: "📁", color: "#999999" },
+    { name: "React Flow", icon: "🕸️", color: "#00bcd4" },
+
+    // 🚀 Backend
     { name: "Node.js", icon: "🟢", color: "#339933" },
-    { name: "HTML5", icon: "🌐", color: "#e34f26" },
-    { name: "CSS3", icon: "🎨", color: "#1572b6" },
-    { name: "Tailwind", icon: "💨", color: "#06b6d4" },
+    { name: "Express.js", icon: "🚂", color: "#000000" },
+    { name: "FastAPI", icon: "⚡", color: "#009688" },
+    { name: "Python", icon: "🐍", color: "#3776ab" },
     { name: "SQL", icon: "🗄️", color: "#336791" },
-    { name: "Git", icon: "📝", color: "#f05032" },
-    { name: "Power BI", icon: "📊", color: "#f2c811" },
-    { name: "Pandas", icon: "🐼", color: "#150458" },
-    { name: "NumPy", icon: "🔢", color: "#013243" },
-    { name: "Flask", icon: "🌶️", color: "#000000" },
+    { name: "MongoDB", icon: "🍃", color: "#47a248" },
+    { name: "Firebase Firestore", icon: "🔥", color: "#ffca28" },
     { name: "Supabase", icon: "⚡", color: "#3ecf8e" },
-    { name: "Linux", icon: "🐧", color: "#fcc624" },
+
+    // 📊 Data & Visualization
+    { name: "Pandas", icon: "🐼", color: "#150458" },
+    { name: "Matplotlib", icon: "📈", color: "#11557c" },
+    { name: "Jupyter Notebook", icon: "📓", color: "#f37626" },
+
+    // ☁️ Cloud & Integration
+    { name: "Firebase Auth", icon: "🔐", color: "#ffa000" },
+    { name: "Supabase Realtime", icon: "🌐", color: "#3ecf8e" },
+    { name: "Razorpay", icon: "💳", color: "#0f0f0f" },
+    { name: "Twilio API", icon: "📲", color: "#f22f46" },
+
+    // 🔐 Tools & DevOps
+    { name: "Git", icon: "📝", color: "#f05032" },
     { name: "Docker", icon: "🐳", color: "#2496ed" },
-    { name: "REST API", icon: "🔗", color: "#ff6b35" },
-    { name: "JWT", icon: "🔐", color: "#000000" },
-    { name: "Jupyter", icon: "📓", color: "#f37626" }
+    { name: "WebSockets", icon: "🔌", color: "#000000" },
+    { name: "VS Code", icon: "🖥️", color: "#007acc" },
+    { name: "Kali Linux", icon: "🐧", color: "#557c94" }
   ];
 
   return (
