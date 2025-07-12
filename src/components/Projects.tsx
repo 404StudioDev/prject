@@ -97,7 +97,7 @@ const projects = [
 
 export default function Projects({ isDark }: ProjectsProps) {
   return (
-    <section className="py-16 relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+    <section id="projects" className="py-16 relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
       {/* Space background decorations */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500/8 rounded-full blur-3xl animate-pulse" />

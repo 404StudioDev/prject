@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
@@ -80,6 +81,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white">
+      <Navbar isDark={isDark} />
       <Hero isDark={isDark} onNavigateToBlog={navigateToBlog} />
       <Skills isDark={isDark} />
       <Projects isDark={isDark} />

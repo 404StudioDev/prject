@@ -15,7 +15,7 @@ export default function Experience({ isDark }: ExperienceProps) {
   ];
 
   return (
-    <section className="py-16 relative overflow-hidden bg-gradient-to-b from-black via-gray-950 to-black">
+    <section id="experience" className="py-16 relative overflow-hidden bg-gradient-to-b from-black via-gray-950 to-black">
       {/* Simplified background decoration */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-green-500/8 rounded-full blur-3xl" />
