@@ -96,16 +96,16 @@ const projects = [
 
 export default function Projects({ isDark }: ProjectsProps) {
   return (
-    <section id="projects" className="py-20 relative overflow-hidden bg-gradient-to-br from-gray-950 via-black to-gray-950">
-      {/* Background Blurs and Grid */}
+    <section id="projects" className="py-20 relative overflow-hidden bg-gradient-to-b from-gray-950 via-black to-gray-950">
+      {/* 🌌 Background Blurs and Cyber Grid */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
+        <div className="absolute top-20 left-10 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        {/* Terminal Header + Gradient Title */}
+        {/* 📁 Terminal Header and Gradient Heading */}
         <AnimatedSection className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6 bg-gray-900/50 border border-gray-700/50 text-gray-300 backdrop-blur-sm">
             <Code className="w-4 h-4 text-cyan-400" />
@@ -118,11 +118,11 @@ export default function Projects({ isDark }: ProjectsProps) {
 
           <p className="text-lg max-w-3xl mx-auto leading-relaxed text-gray-300 font-mono">
             <span className="text-cyan-400">// </span>
-            Innovative builds across <span className="text-purple-400">web</span>, <span className="text-pink-400">data</span>, and <span className="text-blue-400">analytics</span>
+            Built with <span className="text-purple-400">React</span>, <span className="text-pink-400">Python</span>, and <span className="text-blue-400">Power BI</span>
           </p>
         </AnimatedSection>
 
-        {/* Project Grid */}
+        {/* 🧠 Grid of Project Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {projects.map((project, index) => (
             <ProjectCard
@@ -134,7 +134,7 @@ export default function Projects({ isDark }: ProjectsProps) {
           ))}
         </div>
 
-        {/* CTA Button */}
+        {/* 📎 GitHub CTA */}
         <AnimatedSection className="text-center mt-16" delay={0.5}>
           <motion.a
             href="https://github.com/Scriptzstarling"
