@@ -24,14 +24,19 @@ export default function ProjectCard({
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.08, ease: [0.4, 0, 0.2, 1] }}
+      transition={{
+        duration: 0.5,
+        delay: index * 0.08,
+        ease: [0.4, 0, 0.2, 1],
+      }}
       viewport={{ once: true, margin: "-30px" }}
-      className="group relative transition-transform duration-300"
+      className="group relative transition-transform duration-500 ease-out hover:scale-[1.04] hover:-translate-y-1"
     >
-      {/* 🌈 Moving Neon Gradient Border */}
-      <div className="rounded-xl p-[1.5px] bg-[length:300%_300%] animate-gradient-x bg-gradient-to-r from-[#00f0ff] via-[#7b5eff] to-[#ff00c8] shadow-soft group-hover:scale-[1.035] group-hover:-translate-y-1 group-hover:shadow-lg transition-all duration-300 ease-out">
-        <div className="rounded-xl bg-black p-4 h-full transition-all duration-300 ease-in-out">
-          {/* 📸 Image */}
+      {/* 🌈 Moving Border with Neon Glow */}
+      <div className="p-[1.5px] rounded-xl animate-gradient-x bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-[length:300%_300%] shadow-soft group-hover:shadow-lg transition-shadow duration-500">
+        {/* 🖤 Inner Card */}
+        <div className="rounded-xl bg-black p-4 h-full transition-all duration-500 ease-in-out card-hover">
+          {/* 📸 Image Section */}
           <div className="relative overflow-hidden rounded-md mb-3">
             <img
               src={image}
@@ -45,11 +50,11 @@ export default function ProjectCard({
             </div>
           </div>
 
-          {/* 🧠 Info */}
+          {/* 🔤 Title + Description */}
           <h3 className="text-sm font-semibold text-white line-clamp-1">{title}</h3>
           <p className="text-xs text-gray-400 line-clamp-2">{description}</p>
 
-          {/* 🛠️ Tech */}
+          {/* 🛠️ Technologies Used */}
           <div className="flex flex-wrap gap-1 mt-2">
             {tech.slice(0, 4).map((item, i) => (
               <span
@@ -66,7 +71,7 @@ export default function ProjectCard({
             )}
           </div>
 
-          {/* 🔗 Click Overlay */}
+          {/* 🔗 Clickable Overlay */}
           <a
             href={href}
             target="_blank"
