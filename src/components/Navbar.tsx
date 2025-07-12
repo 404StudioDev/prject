@@ -47,8 +47,8 @@ export default function Navbar({ isDark }: NavbarProps) {
   };
 
 return (
-  <motion.nav
-    className="fixed top-4 left-1/2 -translate-x-1/2 z-50"
+  <motion.div
+    className="fixed top-4 w-full z-50 flex justify-center"
     initial={{ y: -100, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
     transition={{ duration: 0.8, delay: 0.5 }}
@@ -91,6 +91,6 @@ return (
         </motion.button>
       ))}
     </div>
-  </motion.nav>
+  </motion.div>
 );
 }
