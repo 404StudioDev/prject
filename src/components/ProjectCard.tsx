@@ -32,8 +32,8 @@ export default function ProjectCard({
       viewport={{ once: true, margin: "-30px" }}
       className="group relative transition-transform duration-500 ease-out hover:scale-[1.04] hover:-translate-y-1"
     >
-      {/* 🌈 Moving Border with Neon Glow */}
-      <div className="p-[1.5px] rounded-xl animate-gradient-x bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-[length:300%_300%] shadow-soft group-hover:shadow-lg transition-shadow duration-500">
+      {/* 🌈 Moving Gradient Border with Neon Glow */}
+      <div className="p-[1.5px] rounded-xl animate-gradient-x bg-gradient-to-r from-green-400 via-cyan-500 to-violet-500 bg-[length:300%_300%] shadow-[0_0_20px_rgba(0,255,255,0.2)] group-hover:shadow-[0_0_30px_rgba(137,207,240,0.4)] transition-shadow duration-500">
         {/* 🖤 Inner Card */}
         <div className="rounded-xl bg-black p-4 h-full transition-all duration-500 ease-in-out card-hover">
           {/* 📸 Image Section */}
@@ -51,7 +51,9 @@ export default function ProjectCard({
           </div>
 
           {/* 🔤 Title + Description */}
-          <h3 className="text-sm font-semibold text-white line-clamp-1">{title}</h3>
+          <h3 className="text-sm font-semibold text-white line-clamp-1">
+            {title}
+          </h3>
           <p className="text-xs text-gray-400 line-clamp-2">{description}</p>
 
           {/* 🛠️ Technologies Used */}
