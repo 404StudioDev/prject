@@ -1,17 +1,3 @@
-// styles.css (Include this or append to your global Tailwind or custom CSS)
-@keyframes moveBorder {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-// ProjectCard.tsx
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 
@@ -44,11 +30,11 @@ export default function ProjectCard({
     >
       {/* 🌌 Animated Border */}
       <div
-        className="absolute -inset-0.5 rounded-lg animate-[moveBorder_4s_linear_infinite] opacity-80 z-0"
+        className="absolute -inset-0.5 rounded-lg animate-[moveBorder_4s_linear_infinite] z-0 opacity-80"
         style={{
           background: "linear-gradient(270deg, #9333ea, #3b82f6, #06b6d4, #9333ea)",
           backgroundSize: "600% 600%",
-          filter: "blur(4px)"
+          filter: "blur(6px)",
         }}
       />
 
