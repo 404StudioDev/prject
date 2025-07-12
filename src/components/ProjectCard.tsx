@@ -28,7 +28,7 @@ export default function ProjectCard({
       viewport={{ once: true, margin: "-30px" }}
       className="group relative h-full hover:scale-[1.03] hover:-translate-y-1 transition-transform duration-300"
     >
-      {/* 🌈 Moving Border */}
+      {/* 🌀 Moving Border */}
       <div
         className="absolute -inset-0.5 z-0 rounded-lg animate-gradient-x opacity-80 blur-sm"
         style={{
@@ -37,9 +37,9 @@ export default function ProjectCard({
         }}
       />
 
-      {/* 📦 Card Container */}
-      <div className="relative z-10 h-full rounded-lg overflow-hidden bg-gradient-to-b from-gray-950/90 to-gray-900/90 backdrop-blur-md shadow-strong border border-gray-800">
-        {/* Image */}
+      {/* 💎 Card Container with pure black */}
+      <div className="relative z-10 h-full rounded-lg overflow-hidden bg-black backdrop-blur-md shadow-strong border border-gray-800">
+        {/* 📸 Image */}
         <div className="relative overflow-hidden">
           <img
             src={image}
@@ -53,7 +53,7 @@ export default function ProjectCard({
           </div>
         </div>
 
-        {/* Info */}
+        {/* 🧠 Info Section */}
         <div className="p-4 space-y-2">
           <h3 className="text-base font-semibold text-white line-clamp-1">
             {title}
