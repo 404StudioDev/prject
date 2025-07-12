@@ -19,15 +19,15 @@ export default function Experience({ isDark }: ExperienceProps) {
       id="experience"
       className="py-20 relative overflow-hidden bg-gradient-to-b from-black via-gray-950 to-black"
     >
-      {/* Background Gradient + Grid */}
+      {/* Subtle background decorations */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-green-400/10 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
       </div>
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
-        {/* Terminal Header */}
+        {/* Header */}
         <AnimatedSection className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium mb-6 bg-black/50 border border-green-400/30 text-green-300 backdrop-blur-sm font-mono">
             <Briefcase className="w-4 h-4 text-green-400" />
@@ -51,19 +51,17 @@ export default function Experience({ isDark }: ExperienceProps) {
             whileHover={{ y: -2 }}
             transition={{ duration: 0.3 }}
           >
-            {/* Border Glow on Hover */}
-            <div className="absolute -inset-0.5 rounded-xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 bg-gradient-to-r from-green-400 via-cyan-400 to-purple-500 blur-sm" />
+            {/* 🔆 Softer hover glow */}
+            <div className="absolute -inset-0.5 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-r from-green-500 via-cyan-400 to-purple-500 blur-sm" />
 
             <div className="relative z-10">
               <div className="flex flex-col lg:flex-row lg:items-start gap-4">
-                {/* Icon */}
                 <div className="flex-shrink-0">
                   <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-green-400 to-blue-500 flex items-center justify-center text-white shadow-md">
                     <Briefcase className="w-6 h-6" />
                   </div>
                 </div>
 
-                {/* Content */}
                 <div className="flex-1">
                   <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-3">
                     <div>
@@ -79,7 +77,6 @@ export default function Experience({ isDark }: ExperienceProps) {
                     </div>
                   </div>
 
-                  {/* Achievements */}
                   <div className="space-y-3 mt-4">
                     <h4 className="text-sm font-semibold text-gray-200">
                       Key Achievements & Responsibilities:
@@ -98,14 +95,13 @@ export default function Experience({ isDark }: ExperienceProps) {
                     </div>
                   </div>
 
-                  {/* Tech Stack */}
                   <div className="mt-5">
                     <h4 className="text-sm font-semibold text-gray-200 mb-2">Technologies Used:</h4>
                     <div className="flex flex-wrap gap-1.5">
                       {['HTML/CSS', 'JavaScript', 'REST APIs', 'Responsive Design', 'Agile'].map((tech, index) => (
                         <span
                           key={index}
-                          className="px-3 py-1 rounded-full text-xs font-medium bg-gray-800/60 text-gray-300 border border-gray-700/50 hover:border-green-400/50 hover:bg-green-400/10 transition-all duration-200"
+                          className="px-3 py-1 rounded-full text-xs font-medium bg-gray-800/60 text-gray-300 border border-gray-700/50 hover:border-green-400/40 hover:bg-green-400/10 transition-all duration-200"
                         >
                           {tech}
                         </span>
