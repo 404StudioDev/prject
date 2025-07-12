@@ -48,18 +48,19 @@ export default function Navbar({ isDark }: NavbarProps) {
 
   return (
     <motion.nav
-      className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50"
+      className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50"
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, delay: 0.5 }}
     >
-      <div className="flex items-center gap-2 px-4 py-3 rounded-2xl bg-black/20 backdrop-blur-md border border-white/10 shadow-2xl">
+      {/* Reduced width and better spacing */}
+      <div className="flex items-center gap-1 px-3 py-2 rounded-xl bg-black/30 backdrop-blur-md border border-white/10 shadow-2xl">
         {navItems.map((item, index) => (
           <motion.button
             key={item.id}
             onClick={() => scrollToSection(item.id)}
             className={`
-              relative p-3 rounded-xl transition-all duration-300 group
+              relative p-2.5 rounded-lg transition-all duration-300 group
               ${activeSection === item.id 
                 ? 'bg-white/20 text-white' 
                 : 'text-gray-400 hover:text-white hover:bg-white/10'
@@ -69,23 +70,25 @@ export default function Navbar({ isDark }: NavbarProps) {
             whileTap={{ scale: 0.95 }}
             aria-label={item.label}
           >
-            {/* Active indicator */}
+            {/* Active indicator with smoother animation */}
             {activeSection === item.id && (
               <motion.div
-                className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/30 to-purple-500/30"
+                className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500/30 to-purple-500/30"
                 layoutId="activeTab"
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
               />
             )}
             
-            {/* Icon */}
+            {/* Icon with better sizing */}
             <div className="relative z-10">
-              <item.icon className="w-5 h-5" />
+              <item.icon className="w-4 h-4" />
             </div>
             
-            {/* Tooltip */}
-            <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-black/80 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+            {/* Improved tooltip positioning */}
+            <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-black/90 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-gray-700">
               {item.label}
+              {/* Tooltip arrow */}
+              <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-black/90 border-l border-t border-gray-700 rotate-45"></div>
             </div>
           </motion.button>
         ))}
