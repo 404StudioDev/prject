@@ -48,12 +48,12 @@ export default function Navbar({ isDark }: NavbarProps) {
 
 return (
   <motion.nav
-    className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50"
+    className="fixed top-4 left-1/2 -translate-x-1/2 z-50"
     initial={{ y: -100, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
     transition={{ duration: 0.8, delay: 0.5 }}
   >
-    <div className="flex items-center gap-4 px-5 py-2 rounded-xl bg-black/50 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
+    <div className="flex items-center gap-6 px-6 py-2 rounded-xl bg-black/50 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
       {navItems.map((item) => (
         <motion.button
           key={item.id}
@@ -65,7 +65,7 @@ return (
               : 'text-gray-400 hover:text-white'
             }
           `}
-          whileHover={{ scale: 1.1 }}
+          whileHover={{ scale: 1.12 }}
           whileTap={{ scale: 0.95 }}
           aria-label={item.label}
         >
