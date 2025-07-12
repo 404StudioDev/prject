@@ -46,33 +46,33 @@ export default function Navbar({ isDark }: NavbarProps) {
     }
   };
 
-  return (
+return (
   <motion.nav
-    className="fixed top-10 left-1/2 transform -translate-x-1/2 z-50"
+    className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50"
     initial={{ y: -100, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
     transition={{ duration: 0.8, delay: 0.5 }}
   >
-    <div className="flex flex-col items-center gap-6 px-4 py-6 rounded-3xl bg-black/50 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] w-[72px]">
+    <div className="flex items-center gap-4 px-5 py-2 rounded-xl bg-black/50 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
       {navItems.map((item) => (
         <motion.button
           key={item.id}
           onClick={() => scrollToSection(item.id)}
           className={`
-            relative p-3 rounded-xl transition-all duration-300 group focus:outline-none
+            relative p-2 rounded-lg transition-all duration-300 group focus:outline-none
             ${activeSection === item.id 
               ? 'text-white'
               : 'text-gray-400 hover:text-white'
             }
           `}
-          whileHover={{ scale: 1.15 }}
+          whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           aria-label={item.label}
         >
           {/* Active Glow Indicator */}
           {activeSection === item.id && (
             <motion.div
-              className="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-400/30 to-blue-500/30 blur-sm"
+              className="absolute inset-0 rounded-lg bg-gradient-to-r from-cyan-400/30 to-blue-500/30 blur-sm"
               layoutId="activeTab"
               transition={{ duration: 0.3, ease: "easeInOut" }}
             />
@@ -84,9 +84,9 @@ export default function Navbar({ isDark }: NavbarProps) {
           </div>
 
           {/* Tooltip */}
-          <div className="absolute left-14 top-1/2 -translate-y-1/2 px-3 py-1.5 bg-gray-900 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-gray-700 shadow-md">
+          <div className="absolute -bottom-11 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-gray-900 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-gray-700 shadow-md">
             {item.label}
-            <div className="absolute left-[-6px] top-1/2 transform -translate-y-1/2 w-3 h-3 bg-gray-900 border-t border-l border-gray-700 rotate-45"></div>
+            <div className="absolute -top-1.5 left-1/2 transform -translate-x-1/2 w-2.5 h-2.5 bg-gray-900 border-l border-t border-gray-700 rotate-45"></div>
           </div>
         </motion.button>
       ))}
