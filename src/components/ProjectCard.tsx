@@ -28,11 +28,10 @@ export default function ProjectCard({
       viewport={{ once: true, margin: "-30px" }}
       className="group relative transition-transform duration-300"
     >
-      {/* 🌀 Entire Card Wraps in Hover */}
-      <div className="transform transition-transform duration-300 group-hover:scale-[1.05] group-hover:-translate-y-1">
-        <div className="relative rounded-lg p-[1px] bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 bg-[length:400%_400%] animate-gradient-x shadow-md">
-          {/* 💻 Card Container */}
-          <div className="rounded-lg bg-black p-4 h-full shadow-inner transition duration-300">
+      {/* 🌟 Soft pop-out on hover */}
+      <div className="transition-transform duration-300 group-hover:scale-[1.03] group-hover:-translate-y-1 group-hover:shadow-lg">
+        <div className="relative rounded-lg p-[1px] bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 bg-[length:400%_400%] animate-gradient-x shadow-soft">
+          <div className="rounded-lg bg-black p-4 h-full transition duration-300">
             {/* 📸 Image */}
             <div className="relative overflow-hidden rounded-md mb-3">
               <img
@@ -48,9 +47,7 @@ export default function ProjectCard({
             </div>
 
             {/* 🧠 Info */}
-            <h3 className="text-sm font-semibold text-white line-clamp-1">
-              {title}
-            </h3>
+            <h3 className="text-sm font-semibold text-white line-clamp-1">{title}</h3>
             <p className="text-xs text-gray-400 line-clamp-2">{description}</p>
 
             {/* 🛠️ Tech */}
@@ -70,7 +67,7 @@ export default function ProjectCard({
               )}
             </div>
 
-            {/* Clickable Overlay */}
+            {/* 🔗 Click Overlay */}
             <a
               href={href}
               target="_blank"
