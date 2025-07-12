@@ -1,4 +1,15 @@
-import { Eye, MessageCircle, ArrowDown, Github, Linkedin, Code, Terminal, Zap, BookOpen } from 'lucide-react';
+import { useEffect } from 'react';
+import {
+  Eye,
+  MessageCircle,
+  ArrowDown,
+  Github,
+  Linkedin,
+  Code,
+  Terminal,
+  Zap,
+  BookOpen,
+} from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 import { motion } from 'framer-motion';
 
@@ -8,32 +19,90 @@ interface HeroProps {
 }
 
 export default function Hero({ isDark, onNavigateToBlog }: HeroProps) {
+  // Matrix Effect
+  useEffect(() => {
+    const canvas = document.getElementById('matrixCanvas') as HTMLCanvasElement;
+    const ctx = canvas?.getContext('2d');
+
+    if (!ctx) return;
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const katakana = 'アカサタナハマヤラワ0123456789';
+    const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const nums = '0123456789';
+    const alphabet = katakana + latin + nums;
+
+    const fontSize = 14;
+    const columns = Math.floor(canvas.width / fontSize);
+    const drops: number[] = Array(columns).fill(1);
+
+    const draw = () => {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#0ff';
+      ctx.font = `${fontSize}px monospace`;
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height || Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+
+      requestAnimationFrame(draw);
+    };
+
+    draw();
+
+    const handleResize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black pt-20">
-      {/* Background Grid */}
+      {/* Matrix Canvas */}
+      <canvas id="matrixCanvas" className="absolute inset-0 w-full h-full z-0" />
+
+      {/* Background Grid and Motion Blobs */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.02)_1px,transparent_1px)] bg-[size:80px_80px] animate-pulse" />
-        <motion.div 
+        <motion.div
           className="absolute top-20 left-20 w-80 h-80 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-full blur-3xl"
           animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2], x: [0, 30, 0], y: [0, -20, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
         />
-        <motion.div 
+        <motion.div
           className="absolute bottom-20 right-20 w-72 h-72 bg-gradient-to-r from-indigo-500/10 to-slate-500/10 rounded-full blur-3xl"
           animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.5, 0.3], x: [0, -30, 0], y: [0, 15, 0] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         />
       </div>
 
+      {/* Hero Content */}
       <div className="max-w-5xl mx-auto px-6 py-16 relative z-10">
         <div className="text-center">
           <AnimatedSection direction="down">
-            <motion.div 
+            <motion.div
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full backdrop-blur-md mb-4 border border-blue-500/20 bg-black/80"
               whileHover={{ scale: 1.05 }}
             >
               <div className="relative z-10 flex items-center gap-2">
-                <motion.div className="w-1.5 h-1.5 bg-emerald-400 rounded-full" animate={{ scale: [1, 1.3, 1], opacity: [1, 0.7, 1] }} transition={{ duration: 2, repeat: Infinity }} />
+                <motion.div
+                  className="w-1.5 h-1.5 bg-emerald-400 rounded-full"
+                  animate={{ scale: [1, 1.3, 1], opacity: [1, 0.7, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
                 <Code className="w-3 h-3 text-blue-400" />
                 <span className="text-xs font-medium text-white">Available for Frontend, AI & Data Roles</span>
                 <Terminal className="w-3 h-3 text-slate-400" />
@@ -43,20 +112,27 @@ export default function Hero({ isDark, onNavigateToBlog }: HeroProps) {
 
           <AnimatedSection direction="up" delay={0.2}>
             <div className="mb-4">
-              <motion.h1 
+              <motion.h1
                 className="text-3xl md:text-4xl font-bold mb-3 leading-tight text-white font-space"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                Hi, I'm <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent font-orbitron tracking-wider">SHASHWAT</span>
+                Hi, I'm{' '}
+                <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent font-orbitron tracking-wider">
+                  SHASHWAT
+                </span>
               </motion.h1>
 
               <motion.div className="flex flex-wrap items-center justify-center gap-2 text-sm md:text-base font-medium mb-3">
-                {[{ icon: Code, label: "Frontend Developer", color: "blue" }, { icon: Zap, label: "AI Enthusiast", color: "cyan" }, { icon: Terminal, label: "Data Storyteller", color: "indigo" }].map(({ icon: Icon, label, color }, i) => (
-                  <motion.div 
+                {[
+                  { icon: Code, label: 'Frontend Developer', color: 'blue' },
+                  { icon: Zap, label: 'AI Enthusiast', color: 'cyan' },
+                  { icon: Terminal, label: 'Data Storyteller', color: 'indigo' },
+                ].map(({ icon: Icon, label, color }, i) => (
+                  <motion.div
                     key={i}
-                    className={flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-${color}-500/10 border border-${color}-500/20 backdrop-blur-sm text-${color}-400}
+                    className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-${color}-500/10 border border-${color}-500/20 backdrop-blur-sm text-${color}-400`}
                     whileHover={{ scale: 1.05, y: -2 }}
                   >
                     <Icon className="w-3 h-3" />
@@ -69,7 +145,11 @@ export default function Hero({ isDark, onNavigateToBlog }: HeroProps) {
 
           <AnimatedSection direction="up" delay={0.4}>
             <motion.p className="text-sm md:text-base mb-6 max-w-3xl mx-auto leading-relaxed text-gray-300 font-space">
-              Transforming ideas into <span className="text-blue-400 font-medium">elegant digital experiences</span>, <span className="text-cyan-400 font-medium">innovative code</span>, <span className="text-indigo-400 font-medium">smart AI</span> & <span className="text-emerald-400 font-medium">data-driven insights</span>
+              Transforming ideas into{' '}
+              <span className="text-blue-400 font-medium">elegant digital experiences</span>,{' '}
+              <span className="text-cyan-400 font-medium">innovative code</span>,{' '}
+              <span className="text-indigo-400 font-medium">smart AI</span> &{' '}
+              <span className="text-emerald-400 font-medium">data-driven insights</span>
             </motion.p>
           </AnimatedSection>
 
@@ -77,34 +157,41 @@ export default function Hero({ isDark, onNavigateToBlog }: HeroProps) {
             <div className="relative mb-8">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-cyan-500/10 to-indigo-500/5 rounded-2xl blur-xl" />
               <motion.div className="relative flex flex-col sm:flex-row items-center justify-center gap-3 p-4">
-                {[{
-                  label: "View Resume",
-                  href: "/Shashwat_Resume.pdf",
-                  icon: Eye,
-                  bg: "from-blue-600 via-cyan-600 to-indigo-600",
-                  hover: "text-white",
-                }, {
-                  label: "Read Blog",
-                  onClick: onNavigateToBlog,
-                  icon: BookOpen,
-                  bg: "from-emerald-500 via-cyan-500 to-purple-500",
-                  hover: "text-emerald-400",
-                }, {
-                  label: "Let's Connect",
-                  href: "#contact",
-                  icon: MessageCircle,
-                  bg: "from-blue-500 via-cyan-500 to-indigo-500",
-                  hover: "text-cyan-400",
-                }].map(({ label, icon: Icon, href, onClick, bg, hover }, i) => (
+                {[
+                  {
+                    label: 'View Resume',
+                    href: '/Shashwat_Resume.pdf',
+                    icon: Eye,
+                    bg: 'from-blue-600 via-cyan-600 to-indigo-600',
+                    hover: 'text-white',
+                  },
+                  {
+                    label: 'Read Blog',
+                    onClick: onNavigateToBlog,
+                    icon: BookOpen,
+                    bg: 'from-emerald-500 via-cyan-500 to-purple-500',
+                    hover: 'text-emerald-400',
+                  },
+                  {
+                    label: "Let's Connect",
+                    href: '#contact',
+                    icon: MessageCircle,
+                    bg: 'from-blue-500 via-cyan-500 to-indigo-500',
+                    hover: 'text-cyan-400',
+                  },
+                ].map(({ label, icon: Icon, href, onClick, bg, hover }, i) => (
                   <motion.a
                     key={i}
                     href={href}
                     onClick={onClick}
-                    className={group relative flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm border border-slate-600/30 backdrop-blur-md bg-black/80 ${hover}}
+                    className={`group relative flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm border border-slate-600/30 backdrop-blur-md bg-black/80 ${hover}`}
                     whileHover={{ scale: 1.05, y: -3 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <div className={absolute inset-0 rounded-lg opacity-0 group-hover:opacity-60 transition-opacity duration-300 bg-gradient-to-r ${bg}} style={{ backgroundSize: '300% 300%', animation: 'gradient-shift 3s ease infinite' }} />
+                    <div
+                      className={`absolute inset-0 rounded-lg opacity-0 group-hover:opacity-60 transition-opacity duration-300 bg-gradient-to-r ${bg}`}
+                      style={{ backgroundSize: '300% 300%', animation: 'gradient-shift 3s ease infinite' }}
+                    />
                     <div className="absolute inset-[1px] rounded-lg bg-black/90 backdrop-blur-md" />
                     <div className="relative z-10 flex items-center gap-2 text-white">
                       <Icon className="w-4 h-4" />
@@ -118,7 +205,18 @@ export default function Hero({ isDark, onNavigateToBlog }: HeroProps) {
 
           <AnimatedSection direction="up" delay={0.8}>
             <motion.div className="flex items-center justify-center gap-3 mb-8">
-              {[{ icon: Github, href: "https://github.com/Scriptzstarling", color: "from-gray-600 to-gray-800" }, { icon: Linkedin, href: "https://linkedin.com/in/shashwat8w00", color: "from-blue-600 to-blue-800" }].map(({ icon: Icon, href, color }, i) => (
+              {[
+                {
+                  icon: Github,
+                  href: 'https://github.com/Scriptzstarling',
+                  color: 'from-gray-600 to-gray-800',
+                },
+                {
+                  icon: Linkedin,
+                  href: 'https://linkedin.com/in/shashwat8w00',
+                  color: 'from-blue-600 to-blue-800',
+                },
+              ].map(({ icon: Icon, href, color }, i) => (
                 <motion.a
                   key={i}
                   href={href}
@@ -128,7 +226,10 @@ export default function Hero({ isDark, onNavigateToBlog }: HeroProps) {
                   whileHover={{ scale: 1.1, y: -3 }}
                   whileTap={{ scale: 0.9 }}
                 >
-                  <div className={absolute inset-0 rounded-lg opacity-0 group-hover:opacity-60 bg-gradient-to-r ${color}} style={{ backgroundSize: '300% 300%', animation: 'gradient-shift 2s ease infinite' }} />
+                  <div
+                    className={`absolute inset-0 rounded-lg opacity-0 group-hover:opacity-60 bg-gradient-to-r ${color}`}
+                    style={{ backgroundSize: '300% 300%', animation: 'gradient-shift 2s ease infinite' }}
+                  />
                   <div className="absolute inset-[1px] rounded-lg bg-black/80 backdrop-blur-md" />
                   <div className="relative z-10">
                     <Icon className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors duration-300" />
@@ -141,7 +242,11 @@ export default function Hero({ isDark, onNavigateToBlog }: HeroProps) {
           <AnimatedSection direction="up" delay={1}>
             <motion.div className="flex flex-col items-center gap-1">
               <span className="text-xs text-gray-500 font-medium font-space">Scroll to explore</span>
-              <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }} className="p-1.5 rounded-full border border-gray-600/30 bg-gray-800/30 backdrop-blur-sm">
+              <motion.div
+                animate={{ y: [0, 6, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                className="p-1.5 rounded-full border border-gray-600/30 bg-gray-800/30 backdrop-blur-sm"
+              >
                 <ArrowDown className="w-3 h-3 text-gray-400" />
               </motion.div>
             </motion.div>
