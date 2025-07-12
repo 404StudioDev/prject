@@ -9,7 +9,7 @@ interface HeroProps {
 
 export default function Hero({ isDark, onNavigateToBlog }: HeroProps) {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black pt-20">
       {/* 🌌 Dark Space Background Effects */}
       <div className="absolute inset-0">
         {/* Animated cyber grid */}
