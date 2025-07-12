@@ -65,45 +65,43 @@ const projects = [
     image: "TelecomChurn.webp"
   },
   {
-   title: "Amazon Sales Analysis",
-   description: "End-to-end Power BI dashboard to analyze Amazon product sales and reviews with interactive visualizations.",
-   href: "https://github.com/Scriptzstarling/Amazon-Sales-Analysis-PowerBI",
-   tech: ["Power BI", "Excel"],
-   image: "AmazonSales.webp"
+    title: "Amazon Sales Analysis",
+    description: "End-to-end Power BI dashboard to analyze Amazon product sales and reviews with interactive visualizations.",
+    href: "https://github.com/Scriptzstarling/Amazon-Sales-Analysis-PowerBI",
+    tech: ["Power BI", "Excel"],
+    image: "AmazonSales.webp"
   },
   {
-   title: "Netflix Shows Analysis",
-   description: "Interactive Power BI dashboard with filters and insights from Netflix dataset for content analysis.",
-   href: "https://github.com/Scriptzstarling/Netflix-Shows-Analysis",
-   tech: ["Power BI", "Excel"],
-   image: "Netflix.webp"
+    title: "Netflix Shows Analysis",
+    description: "Interactive Power BI dashboard with filters and insights from Netflix dataset for content analysis.",
+    href: "https://github.com/Scriptzstarling/Netflix-Shows-Analysis",
+    tech: ["Power BI", "Excel"],
+    image: "Netflix.webp"
   },
   {
-   title: "HR Analytics Dashboard",
-   description: "Interactive Power BI dashboard to analyze employee attrition based on role, age, education, and job satisfaction.",
-   href: "https://github.com/Scriptzstarling/HR-Analytics-Dashboard",
-   tech: ["Power BI", "CSV"],
-   image: "HR.webp" 
+    title: "HR Analytics Dashboard",
+    description: "Interactive Power BI dashboard to analyze employee attrition based on role, age, education, and job satisfaction.",
+    href: "https://github.com/Scriptzstarling/HR-Analytics-Dashboard",
+    tech: ["Power BI", "CSV"],
+    image: "HR.webp" 
   },
   {
-  title: "Multi-Topic Quiz App",
-  description: "ReactJS-based quiz platform with topic selection, real-time scoring, JSON backend, and optional timer and progress features.",
-  href: "https://github.com/Scriptzstarling/Internship_Code_Bucket_Pvt_Ltd",
-  tech: ["ReactJS", "Tailwind CSS", "JSON", "Framer Motion"],
-  image: "quizapp.webp" 
-},
-
+    title: "Multi-Topic Quiz App",
+    description: "ReactJS-based quiz platform with topic selection, real-time scoring, JSON backend, and optional timer and progress features.",
+    href: "https://github.com/Scriptzstarling/Internship_Code_Bucket_Pvt_Ltd",
+    tech: ["ReactJS", "Tailwind CSS", "JSON", "Framer Motion"],
+    image: "quizapp.webp" 
+  },
 ];
 
 export default function Projects({ isDark }: ProjectsProps) {
   return (
-    <section id="projects" className="py-16 relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+    <section id="projects" className="py-16 relative overflow-hidden bg-black bg-gradient-to-br from-slate-950/80 via-black to-slate-900">
       {/* Space background decorations */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500/8 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-500/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        {/* Tech grid pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.02)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
+        <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
