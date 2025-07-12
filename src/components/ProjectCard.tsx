@@ -26,12 +26,12 @@ export default function ProjectCard({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.08, ease: [0.4, 0, 0.2, 1] }}
       viewport={{ once: true, margin: "-30px" }}
-      className="group relative transition-transform duration-300 hover:scale-[1.02] hover:-translate-y-1"
+      className="group relative transition-transform duration-300 hover:scale-[1.03] hover:-translate-y-1"
     >
-      {/* 🌀 Animated Border Wrapper */}
-      <div className="relative rounded-lg p-[1px] bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 bg-[length:400%_400%] animate-gradient-x">
-        {/* 💻 Actual Card */}
-        <div className="rounded-lg bg-black p-4 h-full">
+      {/* 🌀 Glowing Gradient Border on Hover */}
+      <div className="relative rounded-lg p-[1px] bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 bg-[length:400%_400%] animate-gradient-x shadow-md group-hover:shadow-pink-500/20 transition-all duration-300">
+        {/* 💻 Card Container */}
+        <div className="rounded-lg bg-black p-4 h-full group-hover:shadow-lg group-hover:shadow-purple-500/10 transition duration-300">
           {/* 📸 Image */}
           <div className="relative overflow-hidden rounded-md mb-3">
             <img
@@ -47,7 +47,9 @@ export default function ProjectCard({
           </div>
 
           {/* 🧠 Info */}
-          <h3 className="text-sm font-semibold text-white line-clamp-1">{title}</h3>
+          <h3 className="text-sm font-semibold text-white line-clamp-1">
+            {title}
+          </h3>
           <p className="text-xs text-gray-400 line-clamp-2">{description}</p>
 
           {/* 🛠️ Tech */}
@@ -67,7 +69,7 @@ export default function ProjectCard({
             )}
           </div>
 
-          {/* Click Overlay */}
+          {/* Clickable Overlay */}
           <a
             href={href}
             target="_blank"
