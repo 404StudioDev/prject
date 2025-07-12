@@ -1,4 +1,4 @@
-import { Code, Sparkles } from 'lucide-react';
+import { Code } from 'lucide-react';
 import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
 import AnimatedSection from './AnimatedSection';
@@ -11,7 +11,7 @@ const projects = [
   {
     title: "TaskIQ – Smart Task Management",
     description: "Full-stack task manager with JWT auth, real-time email alerts, and responsive UI using Flask, React.js, and Supabase.",
-    href: "https://github.com/Scriptzstarling/TaskIQ", 
+    href: "https://github.com/Scriptzstarling/TaskIQ",
     tech: ["React.js", "Tailwind CSS", "Flask", "Supabase", "SendGrid"],
     image: "TaskIQ.webp"
   },
@@ -83,49 +83,46 @@ const projects = [
     description: "Interactive Power BI dashboard to analyze employee attrition based on role, age, education, and job satisfaction.",
     href: "https://github.com/Scriptzstarling/HR-Analytics-Dashboard",
     tech: ["Power BI", "CSV"],
-    image: "HR.webp" 
+    image: "HR.webp"
   },
   {
     title: "Multi-Topic Quiz App",
     description: "ReactJS-based quiz platform with topic selection, real-time scoring, JSON backend, and optional timer and progress features.",
     href: "https://github.com/Scriptzstarling/Internship_Code_Bucket_Pvt_Ltd",
     tech: ["ReactJS", "Tailwind CSS", "JSON", "Framer Motion"],
-    image: "quizapp.webp" 
+    image: "quizapp.webp"
   },
 ];
 
 export default function Projects({ isDark }: ProjectsProps) {
   return (
-    <section id="projects" className="py-16 relative overflow-hidden bg-black bg-gradient-to-br from-slate-950/80 via-black to-slate-900">
-      {/* Space background decorations */}
+    <section id="projects" className="py-20 relative overflow-hidden bg-gradient-to-br from-gray-950 via-black to-gray-950">
+      {/* Background Blurs and Grid */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl" />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        {/* Header */}
-        <AnimatedSection className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium mb-6 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 text-blue-300 backdrop-blur-sm">
-            <Code className="w-3 h-3" />
-            Portfolio Showcase
-            <Sparkles className="w-3 h-3" />
+        {/* Terminal Header + Gradient Title */}
+        <AnimatedSection className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6 bg-gray-900/50 border border-gray-700/50 text-gray-300 backdrop-blur-sm">
+            <Code className="w-4 h-4 text-cyan-400" />
+            <span className="font-mono">./projects</span>
           </div>
-          
-          <h2 className="text-2xl md:text-3xl font-bold mb-3 bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent">
-            Featured Projects
+
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white via-cyan-100 to-purple-100 bg-clip-text text-transparent font-mono">
+            &lt;Featured Projects /&gt;
           </h2>
-          
-          <p className="text-sm max-w-3xl mx-auto leading-relaxed text-gray-300">
-            Innovative solutions showcasing expertise across 
-            <span className="text-blue-400 font-medium"> web development</span>, 
-            <span className="text-purple-400 font-medium"> data science</span>, and 
-            <span className="text-pink-400 font-medium"> analytics</span>
+
+          <p className="text-lg max-w-3xl mx-auto leading-relaxed text-gray-300 font-mono">
+            <span className="text-cyan-400">// </span>
+            Innovative builds across <span className="text-purple-400">web</span>, <span className="text-pink-400">data</span>, and <span className="text-blue-400">analytics</span>
           </p>
         </AnimatedSection>
 
-        {/* Projects Grid */}
+        {/* Project Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {projects.map((project, index) => (
             <ProjectCard
@@ -137,13 +134,13 @@ export default function Projects({ isDark }: ProjectsProps) {
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <AnimatedSection className="text-center mt-12" delay={0.3}>
-          <motion.a 
-            href="https://github.com/Scriptzstarling" 
-            target="_blank" 
+        {/* CTA Button */}
+        <AnimatedSection className="text-center mt-16" delay={0.5}>
+          <motion.a
+            href="https://github.com/Scriptzstarling"
+            target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-blue-500/25 backdrop-blur-sm border border-blue-500/20"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-white bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-cyan-500/25 backdrop-blur-sm border border-cyan-500/20"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
