@@ -93,3 +93,4 @@ export default function Navbar({ isDark }: NavbarProps) {
     </div>
   </motion.nav>
 );
+}
