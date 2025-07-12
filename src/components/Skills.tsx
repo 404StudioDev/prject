@@ -7,31 +7,41 @@ interface SkillsProps {
 }
 
 export default function Skills({ isDark }: SkillsProps) {
-  const skillCategories = [
-    {
-      title: "Programming Languages",
-      icon: <Code className="w-5 h-5" />,
-      skills: ["Python", "SQL", "Shell Scripting"],
-      color: "from-cyan-500 to-blue-500"
-    },
-    {
-      title: "Frontend & Backend",
-      icon: <Globe className="w-5 h-5" />,
-      skills: ["HTML5", "CSS", "JavaScript", "React.js", "Supabase", "Tailwind CSS", "Bootstrap", "REST APIs", "JWT"],
-      color: "from-purple-500 to-pink-500"
-    },
-    {
-      title: "Data & Analytics",
-      icon: <BarChart3 className="w-5 h-5" />,
-      skills: ["Power BI", "Pandas", "NumPy", "Scikit-learn", "Matplotlib"],
-      color: "from-green-500 to-emerald-500"
-    },
-    {
-      title: "Tools & Platforms",
-      icon: <Server className="w-5 h-5" />,
-      skills: ["Linux", "Git", "Jupyter", "Agile", "VMware"],
-      color: "from-orange-500 to-red-500"
-    }
+  const skills = [
+    // Programming Languages
+    { name: "Python", icon: "🐍", color: "#3776ab" },
+    { name: "JavaScript", icon: "JS", color: "#f7df1e", textColor: "#000" },
+    { name: "TypeScript", icon: "TS", color: "#3178c6" },
+    { name: "SQL", icon: "🗃️", color: "#336791" },
+    { name: "Shell", icon: "💻", color: "#4eaa25" },
+    
+    // Frontend Technologies
+    { name: "React", icon: "⚛️", color: "#61dafb" },
+    { name: "HTML5", icon: "🌐", color: "#e34f26" },
+    { name: "CSS3", icon: "🎨", color: "#1572b6" },
+    { name: "Tailwind CSS", icon: "🌊", color: "#06b6d4" },
+    { name: "Bootstrap", icon: "🅱️", color: "#7952b3" },
+    
+    // Backend & APIs
+    { name: "Node.js", icon: "📗", color: "#339933" },
+    { name: "REST APIs", icon: "🔗", color: "#ff6b35" },
+    { name: "JWT", icon: "🔐", color: "#000000" },
+    { name: "Supabase", icon: "⚡", color: "#3ecf8e" },
+    { name: "Flask", icon: "🌶️", color: "#000000" },
+    
+    // Data & Analytics
+    { name: "Power BI", icon: "📊", color: "#f2c811" },
+    { name: "Pandas", icon: "🐼", color: "#150458" },
+    { name: "NumPy", icon: "🔢", color: "#013243" },
+    { name: "Matplotlib", icon: "📈", color: "#11557c" },
+    { name: "Scikit-learn", icon: "🤖", color: "#f7931e" },
+    
+    // Tools & Platforms
+    { name: "Git", icon: "📝", color: "#f05032" },
+    { name: "Linux", icon: "🐧", color: "#fcc624" },
+    { name: "Jupyter", icon: "📓", color: "#f37626" },
+    { name: "VMware", icon: "🖥️", color: "#607078" },
+    { name: "Agile", icon: "🔄", color: "#0052cc" }
   ];
 
   return (
@@ -44,7 +54,7 @@ export default function Skills({ isDark }: SkillsProps) {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
       </div>
       
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <AnimatedSection className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium mb-6 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20 text-cyan-300 backdrop-blur-sm">
@@ -61,64 +71,51 @@ export default function Skills({ isDark }: SkillsProps) {
           </p>
         </AnimatedSection>
         
-        {/* Skills Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {skillCategories.map((category, index) => (
-            <AnimatedSection key={index} delay={index * 0.1}>
+        {/* Skills Grid - Matching the image layout */}
+        <AnimatedSection>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+            {skills.map((skill, index) => (
               <motion.div
-                className="group relative rounded-xl p-4 transition-all duration-500 bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border border-gray-700/50 shadow-lg hover:shadow-2xl hover:shadow-cyan-500/20"
-                whileHover={{ y: -6, scale: 1.02 }}
-                transition={{ duration: 0.3 }}
+                key={index}
+                className="group relative rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 0.4, 
+                  delay: index * 0.02,
+                  ease: [0.4, 0, 0.2, 1]
+                }}
+                viewport={{ once: true, margin: "-50px" }}
+                whileHover={{ scale: 1.05, y: -4 }}
               >
-                {/* Animated border effect */}
-                <div className="absolute -inset-0.5 rounded-xl opacity-0 group-hover:opacity-60 transition-opacity duration-300"
-                     style={{
-                       background: `linear-gradient(45deg, ${category.color.split(' ')[1]}, ${category.color.split(' ')[3]}, ${category.color.split(' ')[1]})`,
-                       backgroundSize: '300% 300%',
-                       animation: 'gradient-shift 2s ease infinite'
-                     }} />
-                
-                <div className="relative z-10">
-                  <motion.div 
-                    className={`
-                      w-10 h-10 rounded-lg bg-gradient-to-r ${category.color} 
-                      flex items-center justify-center text-white mb-3 shadow-lg
-                    `}
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ duration: 0.2 }}
+                {/* Card with black border and light gray background */}
+                <div className="relative bg-gray-200 border-2 border-black rounded-lg p-3 h-16 flex items-center gap-3 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                  {/* Icon container with colored background */}
+                  <div 
+                    className="w-8 h-8 rounded flex items-center justify-center text-white font-bold text-sm flex-shrink-0 shadow-sm"
+                    style={{ 
+                      backgroundColor: skill.color,
+                      color: skill.textColor || '#ffffff'
+                    }}
                   >
-                    {category.icon}
-                  </motion.div>
-                  
-                  <h3 className="text-lg font-bold mb-3 transition-colors duration-300 text-white group-hover:text-cyan-400">
-                    {category.title}
-                  </h3>
-                  
-                  <div className="space-y-1.5">
-                    {category.skills.map((skill, skillIndex) => (
-                      <motion.div
-                        key={skillIndex}
-                        className="flex items-center gap-2 p-1.5 rounded-lg transition-all duration-200 bg-gray-800/40 hover:bg-gray-700/40 border border-gray-700/30"
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ 
-                          duration: 0.3, 
-                          delay: (index * 0.1) + (skillIndex * 0.05) 
-                        }}
-                        whileHover={{ x: 3 }}
-                      >
-                        <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${category.color}`}></div>
-                        <span className="text-xs font-medium text-gray-300">
-                          {skill}
-                        </span>
-                      </motion.div>
-                    ))}
+                    {skill.icon}
                   </div>
+                  
+                  {/* Skill name */}
+                  <span className="text-black font-semibold text-sm truncate">
+                    {skill.name}
+                  </span>
+                  
+                  {/* Hover glow effect */}
+                  <div 
+                    className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-sm"
+                    style={{ backgroundColor: skill.color }}
+                  />
                 </div>
               </motion.div>
-            </AnimatedSection>
-          ))}
-        </div>
+            ))}
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );
